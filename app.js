@@ -36,5 +36,6 @@ app.use(function (err, req, res, next) {
 });
 
 // Routes List
+app.use("/api/auth", require("./routes/AuthRoute"))
 
 module.exports = app;
