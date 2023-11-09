@@ -5,6 +5,6 @@ const forePartCategorySchema = new mongoose.Schema({
         type: String,
         max: 100
     }
-})
+}, { timestamps: true })
 
 module.exports = mongoose.model('forepartcategory', forePartCategorySchema)

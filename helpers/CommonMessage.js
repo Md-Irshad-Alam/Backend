@@ -37,5 +37,24 @@ module.exports = {
     storesave: {
         success: 'Store added successfully',
         failed: 'Store is not added successfully. Please try again'
+    },
+    updatestore: {
+        success: "Store details is successfully updated",
+        failed: "Store details update process failed",
+    },
+    getallstore: {
+        success: "All store are successfully fetched",
+        failed: "Store fetching process failed",
+        nouser: "No store found"
+    },
+    togglestore: {
+        active: "Store successfully activated",
+        deactive: "Store successfully deactivated",
+        failed: "Store active deactive process failed",
+        notfound: "Store details not found"
+    },
+    deletestore: {
+        success: "Store is successfully deleted",
+        failed: "Store delete process failed",
     }
 }

@@ -8,6 +8,6 @@ const groupSchema = new mongoose.Schema({
     group_user: {
         type: String
     }
-})
+}, { timestamps: true })
 
 module.exports = mongoose.model('groups', groupSchema)
