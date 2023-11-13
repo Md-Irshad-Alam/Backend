@@ -69,9 +69,44 @@ const productSchema = new mongoose.Schema({
     },
     client_ref: {
         logo_r: {
-            type: String
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'colormasters'
         },
-
+        logo_l: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'colormasters'
+        },
+        outsole: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'colormasters'
+        },
+        midsole: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'colormasters'
+        },
+        bottom: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'colormasters'
+        },
+        side_wall: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'colormasters'
+        },
+        heel: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'colormasters'
+        },
+        fore: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'colormasters'
+        },
+        side_wall: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'colormasters'
+        },
+        remarks: {
+            type: String,
+        },
     }
 }, { timestamps: true })
 

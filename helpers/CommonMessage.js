@@ -56,5 +56,13 @@ module.exports = {
     deletestore: {
         success: "Store is successfully deleted",
         failed: "Store delete process failed",
+    },
+    savecolor: {
+        success: 'Color added successfully',
+        failed: 'Color is not added successfully. Please try again'
+    },
+    updatecolor: {
+        success: "Color details is successfully updated",
+        failed: "Color details update process failed",
     }
 }
