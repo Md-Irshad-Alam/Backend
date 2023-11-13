@@ -1,14 +1,10 @@
 const { default: mongoose } = require("mongoose");
 
-const routeschima = new mongoose.Schema({
-    path: {
+const permissionschima = new mongoose.Schema({
+    name: {
         type: String,
         required: true,
         unique: true
-    },
-    permissions: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'permissions'
     },
     isActive: {
         type: Boolean,
@@ -16,4 +12,4 @@ const routeschima = new mongoose.Schema({
     }
 }, { timestamps: true })
 
-module.exports = mongoose.model("routes", routeschima)
+module.exports = mongoose.model("permissions", permissionschima)
