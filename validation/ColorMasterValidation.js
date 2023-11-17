@@ -1,4 +1,4 @@
-const { body } = require("express-validator");
+const { body, param } = require("express-validator");
 const ColorMasterModel = require("../models/ColorMasterModel");
 
 exports.colorvalidation = [
@@ -30,6 +30,18 @@ exports.updatecolorvalidation = [
                 throw new Error('Color is already exsists')
             } else {
                 return true
+            }
+        })
+    })
+]
+
+exports.deletecolorvalidation = [
+    param("id").notEmpty().withMessage('Provide color id').custom(async (value) => {
+        await ColorMasterModel.findById(value).then((result) => {
+            if (result) {
+                return true
+            } else {
+                throw new Error('Color is not exsists')
             }
         })
     })

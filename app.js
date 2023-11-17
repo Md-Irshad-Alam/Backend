@@ -18,5 +18,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use("/api/role-permission", require("./routes/RoleRoutes"))
 app.use("/api/auth", require("./routes/AuthRoute"))
 app.use("/api/store", require("./routes/StoreRoute"))
+app.use("/api/color", require("./routes/ColorRoute"))
+app.use("/api/designation", require("./routes/DesignationRoute"))
+app.use("/api/country", require("./routes/CountryRoute"))
 
 module.exports = app;
