@@ -7,7 +7,7 @@ exports.addpermission = expressAsyncHandler(async (req, res) => {
     try {
 
         const { permission_name } = req.body
-        return
+
         await PermissionModel.create({ name: permission_name }).then((result) => {
             RoleModel.findByIdAndUpdate("65521f7369dc80908b25f784", { $push: { permissions: result._id } }, { new: true }).then(() => {
                 res.status(200).json({ message: CommonMessage.addpermission.success, success: true, permission: result })
