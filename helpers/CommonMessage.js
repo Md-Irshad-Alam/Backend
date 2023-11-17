@@ -2,9 +2,34 @@ module.exports = {
     commonError: (error) => {
         return { message: "Something wrong!", success: false, error: error.toString() }
     },
+    middleware: {
+        notoken: 'Provide token for perform this operation',
+        validtoken: 'Provide a valid token for perform this operation',
+        notvaliduser: 'You are not a valid user on this platform',
+        notactive: 'Your profile has been deactivated contact with admin for activate your account',
+        superadmin: 'Only super admin can perform this operation'
+    },
     validationError: (errors) => {
         return { message: "Please fill all mandatory field", success: false, errors: errors }
     },
+    addpermission: {
+        success: 'New permission is successfully add',
+        failed: 'Permission add process failed'
+    },
+    editpermission: {
+        success: 'Permission is successfully updated',
+        failed: 'Permission update process failed'
+    },
+    removepermission: {
+        success: 'Permission is successfully removed',
+        failed: 'Permission remove process failed'
+    },
+    toogleprmission: {
+        active: 'Permission is successfully active',
+        deactive: 'Permission is successfully deactive',
+        failed: 'Permission active or deactive process failed'
+    },
+
     registerUser: {
         success: 'You are successfully registered. Your account will be activated soon',
         failed: 'Your registration process failed'
