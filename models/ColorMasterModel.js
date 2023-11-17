@@ -10,4 +10,4 @@ const colormasterSchema = new mongoose.Schema({
     }
 }, { timestamps: true })
 
-model.exports = mongoose.model('colormasters', colormasterSchema)
+module.exports = mongoose.model('colormasters', colormasterSchema)
