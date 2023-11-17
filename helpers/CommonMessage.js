@@ -45,7 +45,7 @@ module.exports = {
     getallstore: {
         success: "All store are successfully fetched",
         failed: "Store fetching process failed",
-        nouser: "No store found"
+        nostore: "No store found"
     },
     togglestore: {
         active: "Store successfully activated",
@@ -64,5 +64,66 @@ module.exports = {
     updatecolor: {
         success: "Color details is successfully updated",
         failed: "Color details update process failed",
+    },
+    getallcolor: {
+        success: "All color are successfully fetched",
+        failed: "Color fetching process failed",
+        nocolor: "No color found"
+    },
+    togglecolor: {
+        active: "Color successfully activated",
+        deactive: "Color successfully deactivated",
+        failed: "Color active deactive process failed",
+        notfound: "Color details not found"
+    },
+    deletecolor: {
+        success: "Color is successfully deleted",
+        failed: "Color delete process failed",
+    },
+    savedesignation: {
+        success: 'Designation added successfully',
+        failed: 'Designation is not added successfully. Please try again'
+    },
+    updatedesignation: {
+        success: "Designation details is successfully updated",
+        failed: "Designation details update process failed",
+    },
+    getalldesignation: {
+        success: "All designation are successfully fetched",
+        failed: "Designation fetching process failed",
+        nodesignation: "No designation found"
+    },
+    toggledesignation: {
+        active: "Designation successfully activated",
+        deactive: "Designation successfully deactivated",
+        failed: "Designation active deactive process failed",
+        notfound: "Designation details not found"
+    },
+    deletedesignation: {
+        success: "Designation is successfully deleted",
+        failed: "Designation delete process failed",
+    },
+    savecountry: {
+        success: 'Country added successfully',
+        failed: 'Country is not added successfully. Please try again'
+    },
+    updatecountry: {
+        success: "Country details is successfully updated",
+        failed: "Country details update process failed",
+    },
+    getallcountry: {
+        success: "All country are successfully fetched",
+        failed: "Country fetching process failed",
+        nocountry: "No Country found"
+    },
+    togglecountry: {
+        active: "Country successfully activated",
+        deactive: "Country successfully deactivated",
+        failed: "Country active deactive process failed",
+        notfound: "Country details not found"
+    },
+    deletecountry: {
+        success: "Country is successfully deleted",
+        failed: "Country delete process failed",
     }
 }
