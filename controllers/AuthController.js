@@ -1,12 +1,10 @@
 const expressAsyncHandler = require("express-async-handler");
 const CommonMessage = require("../helpers/CommonMessage");
-const { compairpassword, encryptpassword } = require("../helpers/AuthHelper");
+const { compairpassword, encryptpassword, tokens } = require("../helpers/AuthHelper");
 const otpGenerator = require('otp-generator');
 const moment = require('moment-timezone');
 const AuthModel = require("../models/AuthModel");
 const TokenModel = require("../models/TokenModel");
-const { generate } = require("generate-password");
-
 
 exports.register = expressAsyncHandler(async (req, res) => {
     try {
@@ -58,7 +56,7 @@ exports.forgetPassword = expressAsyncHandler(async (req, res) => {
         const { email } = req.body
         const otp = otpGenerator.generate(6, { upperCaseAlphabets: false, lowerCaseAlphabets: false, specialChars: false });
 
-        await AuthModel.findOneAndUpdate({ email }, { resetpasswordCode: otp, resetpasswordAt: moment().utc().format() }, { new: true }).then(async (result) => {
+        await AuthModel.findOneAndUpdate({ email }, { resetpasswordCode: otp, resetpasswordAt: moment().utc().format() }, { new: true }).then((result) => {
             TokenModel.deleteMany({ user: userdetails._id })
             res.status(200).json({ message: CommonMessage.forgetPassword.success, success: true, code: result.resetpasswordCode })
         }).catch((error) => {
