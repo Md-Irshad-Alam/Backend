@@ -40,7 +40,7 @@ exports.getallstore = expressAsyncHandler(async (req, res) => {
         let skip = limit * (page - 1)
         let totalPage = Math.ceil(await StoreModel.countDocuments({ store_name: { $regex: search, $option: "i" } }) / limit)
 
-        await StoreModel.find({ store_name: { $regex: search, $option: "i" } }).skip(skip).limit(limit).then((result) => {
+        await StoreModel.find({ store_name: { $regex: search } }).skip(skip).limit(limit).then((result) => {
             res.status(200).json({ message: result.count != 0 ? CommonMessage.getallstore.success : CommonMessage.getallstore.nostore, success: true, stores: result, pagination: { limit, page, totalPage } })
         }).catch((error) => {
             res.status(400).json({ message: CommonMessage.getallstore.failed, success: false, error: error.toString() })
