@@ -5,7 +5,7 @@ exports.storevalidation = [
     body("store_name").notEmpty().withMessage('Provide the store name').custom(async (value) => {
         await StoreModel.findOne({ store_name: value }).then((result) => {
             if (result) {
-                throw new Error('Store is already exsists')
+                throw new Error('Store is already exists')
             } else {
                 return true
             }
@@ -19,7 +19,7 @@ exports.updatestorevalidation = [
     param("id").notEmpty().withMessage('Provide store id').custom(async (value) => {
         await StoreModel.findById(value).then((result) => {
             if (!result) {
-                throw new Error('Store is not exsists')
+                throw new Error('Store is not exists')
             } else {
                 return true
             }
@@ -28,7 +28,7 @@ exports.updatestorevalidation = [
     body("store_name").notEmpty().withMessage('Provide the store name').custom(async (value, { req }) => {
         await StoreModel.findOne({ store_name: value, _id: { $ne: req.params.id } }).then((result) => {
             if (result) {
-                throw new Error('Store is already exsists')
+                throw new Error('Store is already exists')
             } else {
                 return true
             }
@@ -43,7 +43,7 @@ exports.deletestorevalidation = [
             if (result) {
                 return true
             } else {
-                throw new Error('Store is not exsists')
+                throw new Error('Store is not exists')
             }
         })
     })

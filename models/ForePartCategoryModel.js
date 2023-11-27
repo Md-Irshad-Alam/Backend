@@ -1,7 +1,7 @@
 const { default: mongoose } = require("mongoose");
 
-const HeelCategorySchema = new mongoose.Schema({
-    HeelCategory: {
+const ForePartCategorySchema = new mongoose.Schema({
+    ForePartCategory: {
         type: String,
         max: 100
     },
@@ -11,4 +11,4 @@ const HeelCategorySchema = new mongoose.Schema({
     }
 }, { timestamps: true })
 
-module.exports = mongoose.model('HeelCategorys', HeelCategorySchema)
+module.exports = mongoose.model('ForePartCategorys', ForePartCategorySchema)

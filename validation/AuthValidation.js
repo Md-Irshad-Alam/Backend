@@ -7,7 +7,7 @@ exports.registervalidation = [
     body("email").notEmpty().withMessage('Provide your email id').isEmail().withMessage('Provide valid email id').custom(async (value) => {
         await AuthModel.findOne({ email: value }).then((result) => {
             if (result) {
-                throw new Error('Email id is already exsists')
+                throw new Error('Email id is already exsist')
             } else {
                 return true
             }

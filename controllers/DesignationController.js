@@ -53,7 +53,7 @@ exports.getallDesignation = expressAsyncHandler(async (req, res) => {
 exports.toggleDesignation = expressAsyncHandler(async (req, res) => {
     try {
         const { id } = req.params
-
+        
         let designationdetails = await DesignationModel.findById(id)
 
         if (!designationdetails) {

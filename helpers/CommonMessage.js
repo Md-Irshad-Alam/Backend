@@ -150,5 +150,132 @@ module.exports = {
     deletecountry: {
         success: "Country is successfully deleted",
         failed: "Country delete process failed",
-    }
+    },
+    UOM:{
+        success: "Currency added successfully",
+        failed: 'Currency is not added successfully. Please try again'
+    },
+    saveUOM: {
+        success: 'Currency added successfully',
+        failed: 'Currency is not added successfully. Please try again'
+    },
+    updateUOM: {
+        success: "Currency details is successfully updated",
+        failed: "Currency details update process failed",
+    },
+    saveForePartCategory: {
+        success: 'ForePartCategory added successfully',
+        failed: 'ForePartCategory is not added successfully. Please try again'
+    },
+    updateForePartCategory: {
+        success: "ForePartCategory details is successfully updated",
+        failed: "ForePartCategory details update process failed",
+    },
+    getallForePartCategory: {
+        success: "All ForePartCategory are successfully fetched",
+        failed: "ForePartCategory fetching process failed",
+        nocountry: "No ForePartCategory found"
+    },
+    toggleForePartCategory: {
+        active: "ForePartCategory successfully activated",
+        deactive: "ForePartCategory successfully deactivated",
+        failed: "ForePartCategory active deactive process failed",
+        notfound: "ForePartCategory details not found"
+    },
+    deleteForePartCategory: {
+        success: "ForePartCategory is successfully deleted",
+        failed: "ForePartCategory delete process failed",
+    },
+    saveHeelCategory: {
+        success: 'HeelCategory added successfully',
+        failed: 'HeelCategory is not added successfully. Please try again'
+    },
+    updateHeelCategory: {
+        success: "HeelCategory details is successfully updated",
+        failed: "HeelCategory details update process failed",
+    },
+    getallHeelCategory: {
+        success: "All HeelCategory are successfully fetched",
+        failed: "HeelCategory fetching process failed",
+        nocountry: "No HeelCategory found"
+    },
+    toggleHeelCategory: {
+        active: "HeelCategory successfully activated",
+        deactive: "HeelCategory successfully deactivated",
+        failed: "HeelCategory active deactive process failed",
+        notfound: "HeelCategory details not found"
+    },
+    deleteHeelCategory: {
+        success: "HeelCategory is successfully deleted",
+        failed: "HeelCategory delete process failed",
+    },
+    saveEmployeeCategory: {
+        success: 'EmployeeCategory added successfully',
+        failed: 'EmployeeCategory is not added successfully. Please try again'
+    },
+    updateEmployeeCategory: {
+        success: "EmployeeCategory details is successfully updated",
+        failed: "EmployeeCategory details update process failed",
+    },
+    getallEmployeeCategory: {
+        success: "AllEmployeeCategory are successfully fetched",
+        failed: "EmployeeCategory fetching process failed",
+        nocountry: "No EmployeeCategory found"
+    },
+    toggleEmployeeCategory: {
+        active: "EmployeeCategory successfully activated",
+        deactive: "EmployeeCategory successfully deactivated",
+        failed: "EmployeeCategory active deactive process failed",
+        notfound: "EmployeeCategory details not found"
+    },
+    deleteEmployeeCategory: {
+        success: "EmployeeCategory is successfully deleted",
+        failed: "EmployeeCategory delete process failed",
+    },
+    saveIngredient: {
+        success: 'Ingredient added successfully',
+        failed: 'Ingredient is not added successfully. Please try again'
+    },
+    updateIngredient: {
+        success: "Ingredient details is successfully updated",
+        failed: "Ingredient details update process failed",
+    },
+    getallIngredient: {
+        success: "AllIngredient are successfully fetched",
+        failed: "Ingredient fetching process failed",
+        nocountry: "No Ingredient found"
+    },
+    toggleIngredient: {
+        active: "Ingredient successfully activated",
+        deactive: "Ingredient successfully deactivated",
+        failed: "Ingredient active deactive process failed",
+        notfound: "Ingredient details not found"
+    },
+    deleteIngredient: {
+        success: "Ingredient is successfully deleted",
+        failed: "Ingredient delete process failed",
+    },
+    saveType: {
+        success: 'Type added successfully',
+        failed: 'Type is not added successfully. Please try again'
+    },
+    updateType: {
+        success: "Type details is successfully updated",
+        failed: "Type details update process failed",
+    },
+    getallType: {
+        success: "AllType are successfully fetched",
+        failed: "Type fetching process failed",
+        nocountry: "No Type found"
+    },
+    toggleType: {
+        active: "Type successfully activated",
+        deactive: "Type successfully deactivated",
+        failed: "Type active deactive process failed",
+        notfound: "Type details not found"
+    },
+    deleteType: {
+        success: "Type is successfully deleted",
+        failed: "Type delete process failed",
+    },
 }

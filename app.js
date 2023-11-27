@@ -24,4 +24,14 @@ app.use("/api/store", require("./routes/StoreRoute"))
 // app.use("/api/designation", require("./routes/DesignationRoute"))
 // app.use("/api/country", require("./routes/CountryRoute"))
 
+// app.use("/api/UOM",require('./routes/UOMRoute'))
+app.use("/api/ForePartCategory", require("./routes/ForePartCategoryRoute"))
+app.use("/api/HeelCategory", require("./routes/HeelCategoryRoute"))
+app.use("/api/EmployeeCategory", require("./routes/EmployeeCategoryRoute"))
+app.use("/api/Ingredient", require("./routes/IngredientRoute"))
+app.use("/api/Type", require("./routes/TypeRoute"))
+
+
+
+
 module.exports = app;

@@ -19,8 +19,8 @@ exports.saveStore = expressAsyncHandler(async (req, res) => {
 exports.updatestore = expressAsyncHandler(async (req, res) => {
     try {
         const { id } = req.params
+        console.log(id);
         const { store_name, remarks } = req.body
-
         await StoreModel.findOneAndUpdate({ _id: id }, { store_name, remarks }).then((result) => {
             res.status(200).json({ message: CommonMessage.updatestore.success, success: true, stores: result })
         }).catch((error) => {

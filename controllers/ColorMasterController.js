@@ -2,6 +2,7 @@ const expressAsyncHandler = require("express-async-handler");
 const ColorMasterModel = require("../models/ColorMasterModel");
 const CommonMessage = require("../helpers/CommonMessage");
 
+//save
 exports.savecolor = expressAsyncHandler(async (req, res) => {
     try {
         const { color, isActive } = req.body
@@ -16,6 +17,7 @@ exports.savecolor = expressAsyncHandler(async (req, res) => {
     }
 })
 
+//edit -update
 exports.updatecolor = expressAsyncHandler(async (req, res) => {
     try {
         const { id } = req.params
@@ -70,6 +72,7 @@ exports.togglecolor = expressAsyncHandler(async (req, res) => {
     }
 })
 
+//delete - cancel
 exports.deletecolor = expressAsyncHandler(async (req, res) => {
     try {
         const { id } = req.params
