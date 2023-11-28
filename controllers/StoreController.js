@@ -19,7 +19,6 @@ exports.saveStore = expressAsyncHandler(async (req, res) => {
 exports.updatestore = expressAsyncHandler(async (req, res) => {
     try {
         const { id } = req.params
-        console.log(id);
         const { store_name, remarks } = req.body
         await StoreModel.findOneAndUpdate({ _id: id }, { store_name, remarks }).then((result) => {
             res.status(200).json({ message: CommonMessage.updatestore.success, success: true, stores: result })
@@ -38,9 +37,9 @@ exports.getallstore = expressAsyncHandler(async (req, res) => {
         let page = req.query.page ? Number(req.query.page) : 1
 
         let skip = limit * (page - 1)
-        let totalPage = Math.ceil(await StoreModel.countDocuments({ store_name: { $regex: search } }) / limit)
+        let totalPage = Math.ceil(await StoreModel.countDocuments({ store_name:new RegExp(search, 'i') }) / limit)
 
-        await StoreModel.find({ store_name: { $regex: search } }).skip(skip).limit(limit).then((result) => {
+        await StoreModel.find({ store_name:new RegExp(search, 'i') }).skip(skip).limit(limit).then((result) => {
             res.status(200).json({ message: result.count != 0 ? CommonMessage.getallstore.success : CommonMessage.getallstore.nostore, success: true, stores: result, pagination: { limit, page, totalPage } })
         }).catch((error) => {
             res.status(400).json({ message: CommonMessage.getallstore.failed, success: false, error: error.toString() })
