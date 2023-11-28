@@ -1,5 +1,5 @@
 const { body, param } = require("express-validator");
-const CountryModel = require("../models/CountryModel");
+const CountryModel = require("../models/CountryModel.js");
 
 exports.countryvalidation = [
     body("country").notEmpty().withMessage('Provide the country name').custom(async (value) => {
