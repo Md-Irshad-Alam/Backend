@@ -38,9 +38,9 @@ exports.getallDesignation = expressAsyncHandler(async (req, res) => {
         let page = req.query.page ? Number(req.query.page) : 1
 
         let skip = limit * (page - 1)
-        let totalPage = Math.ceil(await DesignationModel.countDocuments({ designation: { $regex: search, $option: "i" } }) / limit)
+        let totalPage = Math.ceil(await DesignationModel.countDocuments({ designation: new RegExp(search, 'i') }) / limit)
 
-        await DesignationModel.find({ designation: { $regex: search, $option: "i" } }).skip(skip).limit(limit).then((result) => {
+        await DesignationModel.find({ designation: new RegExp(search, 'i') }).skip(skip).limit(limit).then((result) => {
             res.status(200).json({ message: result.count != 0 ? CommonMessage.getalldesignation.success : CommonMessage.getalldesignation.nodesignation, success: true, designations: result, pagination: { limit, page, totalPage } })
         }).catch((error) => {
             res.status(400).json({ message: CommonMessage.getalldesignation.failed, success: false, error: error.toString() })
