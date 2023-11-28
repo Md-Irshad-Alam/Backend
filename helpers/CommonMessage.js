@@ -151,10 +151,6 @@ module.exports = {
         success: "Country is successfully deleted",
         failed: "Country delete process failed",
     },
-    UOM:{
-        success: "Currency added successfully",
-        failed: 'Currency is not added successfully. Please try again'
-    },
     saveUOM: {
         success: 'Currency added successfully',
         failed: 'Currency is not added successfully. Please try again'
@@ -162,6 +158,21 @@ module.exports = {
     updateUOM: {
         success: "Currency details is successfully updated",
         failed: "Currency details update process failed",
+    },
+    getallUOM: {
+        success: "UOM are successfully fetched",
+        failed: "UOM fetching process failed",
+        nocountry: "UOM state found"
+    },
+    toggleUOM: {
+        active: "UOM successfully activated",
+        deactive: "UOM successfully deactivated",
+        failed: "UOM active deactive process failed",
+        notfound: "UOM details not found"
+    },
+    deleteUOM: {
+        success: "UOM is successfully deleted",
+        failed: "UOM delete process failed",
     },
     saveForePartCategory: {
         success: 'ForePartCategory added successfully',
@@ -323,5 +334,28 @@ module.exports = {
     deleteCurrency: {
         success: "Currency is successfully deleted",
         failed: "Currency delete process failed",
+    },
+    savestateMaster: {
+        success: 'state added successfully',
+        failed: 'state is not added successfully. Please try again'
+    },
+    updatestateMaster: {
+        success: "state details is successfully updated",
+        failed: "state details update process failed",
+    },
+    getallstateMaster: {
+        success: "Allstate are successfully fetched",
+        failed: "state fetching process failed",
+        nocountry: "No state found"
+    },
+    togglestateMaster: {
+        active: "state successfully activated",
+        deactive: "state successfully deactivated",
+        failed: "state active deactive process failed",
+        notfound: "state details not found"
+    },
+    deletestateMaster: {
+        success: "state is successfully deleted",
+        failed: "state delete process failed",
     },
 }
