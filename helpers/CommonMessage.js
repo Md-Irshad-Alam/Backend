@@ -278,4 +278,50 @@ module.exports = {
         success: "Type is successfully deleted",
         failed: "Type delete process failed",
     },
+    saveArticleGroupMaster: {
+        success: 'Group added successfully',
+        failed: 'Group is not added successfully. Please try again'
+    },
+    updateArticleGroupMaster: {
+        success: "Group details is successfully updated",
+        failed: "Group details update process failed",
+    },
+    getallArticleGroupMaster: {
+        success: "Group are successfully fetched",
+        failed: "Group fetching process failed",
+        nocountry: "No Group found"
+    },
+    toggleArticleGroupMaster: {
+        active: "Group successfully activated",
+        deactive: "Group successfully deactivated",
+        failed: "Group active deactive process failed",
+        notfound: "Group details not found"
+    },
+    deleteArticleGroupMaster: {
+        success: "Group is successfully deleted",
+        failed: "Group delete process failed",
+    },
+    saveCurrency: {
+        success: 'Currency added successfully',
+        failed: 'Currency is not added successfully. Please try again'
+    },
+    updateCurrency: {
+        success: "Currency details is successfully updated",
+        failed: "Currency details update process failed",
+    },
+    getallCurrency: {
+        success: "AllCurrency are successfully fetched",
+        failed: "Currency fetching process failed",
+        nocountry: "No Currency found"
+    },
+    toggleCurrency: {
+        active: "Currency successfully activated",
+        deactive: "Currency successfully deactivated",
+        failed: "Currency active deactive process failed",
+        notfound: "Currency details not found"
+    },
+    deleteCurrency: {
+        success: "Currency is successfully deleted",
+        failed: "Currency delete process failed",
+    },
 }

@@ -27,6 +27,10 @@ app.use("/api/auth", require("./routes/AuthRoute"))
 // app.use("/api/Type", require("./routes/TypeRoute"))
 // app.use("/api/designation", require("./routes/DesignationRoute"))
 // app.use("/api/color", require("./routes/ColorMasterRoute"))
+// app.use("/api/ArticleGroupMaster", require("./routes/ArticleGroupMasterRoute.js"))
+app.use("/api/Currency", require("./routes/CurrencyRoute.js"))
+
+
 
 
 
