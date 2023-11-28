@@ -25,9 +25,9 @@ app.use("/api/auth", require("./routes/AuthRoute"))
 // app.use("/api/EmployeeCategory", require("./routes/EmployeeCategoryRoute"))
 // app.use("/api/Ingredient", require("./routes/IngredientRoute"))
 // app.use("/api/Type", require("./routes/TypeRoute"))
-app.use("/api/designation", require("./routes/DesignationRoute"))
+// app.use("/api/designation", require("./routes/DesignationRoute"))
 
-// app.use("/api/color", require("./routes/ColorMasterRoute"))
+app.use("/api/color", require("./routes/ColorMasterRoute"))
 // app.use("/api/country", require("./routes/CountryRoute"))
 // app.use("/api/UOM",require('./routes/UOMRoute'))
 

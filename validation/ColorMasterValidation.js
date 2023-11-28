@@ -1,5 +1,5 @@
 const { body, param } = require("express-validator");
-const ColorMasterModel = require("../models/ColorMasterModel");
+const ColorMasterModel = require("../models/ColorMasterModel.js");
 
 exports.colorvalidation = [
     body("color").notEmpty().withMessage('Provide the color name').custom(async (value) => {
