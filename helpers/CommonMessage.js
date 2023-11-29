@@ -358,4 +358,27 @@ module.exports = {
         success: "state is successfully deleted",
         failed: "state delete process failed",
     },
+    saveAddEmployee: {
+        success: 'Employee added successfully',
+        failed: 'Employee is not added successfully. Please try again'
+    },
+    updateAddEmployee: {
+        success: "Employee details is successfully updated",
+        failed: "Employee details update process failed",
+    },
+    getallAddEmployee: {
+        success: "Employee are successfully fetched",
+        failed: "Employee fetching process failed",
+        notfound: "Employee Not found"
+    },
+    toggleAddEmployee: {
+        active: "Employee successfully activated",
+        deactive: "Employee successfully deactivated",
+        failed: "Employee active deactive process failed",
+        notfound: "Employee details not found"
+    },
+    deleteAddEmployee: {
+        success: "Employee is successfully deleted",
+        failed: "Employee delete process failed",
+    },
 }

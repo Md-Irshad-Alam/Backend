@@ -33,6 +33,9 @@ app.use("/api/auth", require("./routes/AuthRoute"))
 // app.use("/api/country", require("./routes/CountryRoute"))
  
 app.use("/api/UOM",require('./routes/UOMRoute'))
+app.use("/api/AddEmployee",require('./routes/AddEmployeeRoute.js'))
+
+
 
 
 
