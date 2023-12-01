@@ -18,19 +18,19 @@ const productSchema = new mongoose.Schema({
     },
     category: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'categories'
+        ref: 'Categories'
     },
     heel_category: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'heelcategory'
+        ref: 'HeelCategory'
     },
     forepart_category: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'forepartcategory'
+        ref: 'ForepartCategory'
     },
-    uom: {
+    UOM: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'uoms'
+        ref: 'UOMS'
     },
     hardness: {
         type: String,
@@ -70,35 +70,35 @@ const productSchema = new mongoose.Schema({
     client_ref: {
         logo_r: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'colormasters'
+            ref: 'ColorMasters'
         },
         logo_l: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'colormasters'
+            ref: 'ColorMasters'
         },
         outsole: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'colormasters'
+            ref: 'ColorMasters'
         },
         midsole: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'colormasters'
+            ref: 'ColorMasters'
         },
         bottom: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'colormasters'
+            ref: 'ColorMasters'
         },
         side_wall: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'colormasters'
+            ref: 'ColorMasters'
         },
         heel: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'colormasters'
+            ref: 'ColorMasters'
         },
         fore: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'colormasters'
+            ref: 'ColorMasters'
         },
         sidewall_color: {
             type: String,
@@ -111,35 +111,35 @@ const productSchema = new mongoose.Schema({
     production_ref: {
         logo_r: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'colormasters'
+            ref: 'ColorMasters'
         },
         logo_l: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'colormasters'
+            ref: 'ColorMasters'
         },
         outsole: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'colormasters'
+            ref: 'ColorMasters'
         },
         midsole: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'colormasters'
+            ref: 'ColorMasters'
         },
         bottom: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'colormasters'
+            ref: 'ColorMasters'
         },
         side_wall: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'colormasters'
+            ref: 'ColorMasters'
         },
         heel: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'colormasters'
+            ref: 'ColorMasters'
         },
         fore: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'colormasters'
+            ref: 'ColorMasters'
         },
         sidewall_color: {
             type: String,

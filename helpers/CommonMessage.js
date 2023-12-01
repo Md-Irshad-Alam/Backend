@@ -278,4 +278,119 @@ module.exports = {
         success: "Type is successfully deleted",
         failed: "Type delete process failed",
     },
+    saveArticleGroupMaster: {
+        success: 'Group added successfully',
+        failed: 'Group is not added successfully. Please try again'
+    },
+    updateArticleGroupMaster: {
+        success: "Group details is successfully updated",
+        failed: "Group details update process failed",
+    },
+    getallArticleGroupMaster: {
+        success: "Group are successfully fetched",
+        failed: "Group fetching process failed",
+        nocountry: "No Group found"
+    },
+    toggleArticleGroupMaster: {
+        active: "Group successfully activated",
+        deactive: "Group successfully deactivated",
+        failed: "Group active deactive process failed",
+        notfound: "Group details not found"
+    },
+    deleteArticleGroupMaster: {
+        success: "Group is successfully deleted",
+        failed: "Group delete process failed",
+    },
+    saveCurrency: {
+        success: 'Currency added successfully',
+        failed: 'Currency is not added successfully. Please try again'
+    },
+    updateCurrency: {
+        success: "Currency details is successfully updated",
+        failed: "Currency details update process failed",
+    },
+    getallCurrency: {
+        success: "AllCurrency are successfully fetched",
+        failed: "Currency fetching process failed",
+        nocountry: "No Currency found"
+    },
+    toggleCurrency: {
+        active: "Currency successfully activated",
+        deactive: "Currency successfully deactivated",
+        failed: "Currency active deactive process failed",
+        notfound: "Currency details not found"
+    },
+    deleteCurrency: {
+        success: "Currency is successfully deleted",
+        failed: "Currency delete process failed",
+    },
+    savestateMaster: {
+        success: 'state added successfully',
+        failed: 'state is not added successfully. Please try again'
+    },
+    updatestateMaster: {
+        success: "state details is successfully updated",
+        failed: "state details update process failed",
+    },
+    getallstateMaster: {
+        success: "Allstate are successfully fetched",
+        failed: "state fetching process failed",
+        nocountry: "No state found"
+    },
+    togglestateMaster: {
+        active: "state successfully activated",
+        deactive: "state successfully deactivated",
+        failed: "state active deactive process failed",
+        notfound: "state details not found"
+    },
+    deletestateMaster: {
+        success: "state is successfully deleted",
+        failed: "state delete process failed",
+    },
+    saveAddEmployee: {
+        success: 'Employee added successfully',
+        failed: 'Employee is not added successfully. Please try again'
+    },
+    updateAddEmployee: {
+        success: "Employee details is successfully updated",
+        failed: "Employee details update process failed",
+    },
+    getallAddEmployee: {
+        success: "Employee are successfully fetched",
+        failed: "Employee fetching process failed",
+        notfound: "Employee Not found"
+    },
+    toggleAddEmployee: {
+        active: "Employee successfully activated",
+        deactive: "Employee successfully deactivated",
+        failed: "Employee active deactive process failed",
+        notfound: "Employee details not found"
+    },
+    deleteAddEmployee: {
+        success: "Employee is successfully deleted",
+        failed: "Employee delete process failed",
+    },
+    saveAddCategory: {
+        success: 'Category added successfully',
+        failed: 'Category is not added successfully. Please try again'
+    },
+    updateAddCategory: {
+        success: "Category details is successfully updated",
+        failed: "Category details update process failed",
+    },
+    getallAddCategory: {
+        success: "Category are successfully fetched",
+        failed: "Category fetching process failed",
+        notfound: "Category AddCategory found"
+    },
+    toggleAddCategory: {
+        active: "Category successfully activated",
+        deactive: "Category successfully deactivated",
+        failed: "Category active deactive process failed",
+        notfound: "Category details not found"
+    },
+    deleteAddCategory: {
+        success: "Category is successfully deleted",
+        failed: "Category delete process failed",
+    },
 }
