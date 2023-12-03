@@ -5,7 +5,6 @@ var logger = require('morgan');
 const cors = require("cors")
 require("dotenv").config()
 require("./connection/Connection")
-
 var app = express();
 
 // Server Basic Setup
@@ -30,8 +29,11 @@ app.use("/api/auth", require("./routes/AuthRoute"))
 
 
 
- app.use("/api/country", require("./routes/CountryRoute"))
+//  app.use("/api/country", require("./routes/CountryRoute"))
 // app.use("/api/UOM",require('./routes/UOMRoute'))
+
+
+app.use("/api/AddCategory", require("./routes/AddCategoryRoute"))
 
 
 

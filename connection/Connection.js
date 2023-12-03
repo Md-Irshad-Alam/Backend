@@ -5,6 +5,7 @@ const moment = require("moment-timezone");
 
 mongoose.connect(process.env.MONGO_URI)
 
+
 const db = mongoose.connection
 
 db.on("connected", () => console.log("Database is successfully connected!"))
