@@ -1,41 +1,52 @@
-const cutomerAdd = require('../models/AddCustomerModel');
+const cutomerAdd = require('../../models/Customer/AddCustomerModel');
 const expressAsyncHandler = require('express-async-handler');
-const CommonMessage = require('../helpers/CommonMessage');
+const CommonMessage = require('../../helpers/CommonMessage');
+
 const saveCustomer = expressAsyncHandler(async (req, res) => {
   try {
     const {
+      initials,
       customer_name,
-      alias,
+      company,
+      currency,
       customer_code,
-      billDetails,
-      shipDetails,
-      isActive,
+      fax,
+      contach_person,
+      contact_phone,
+      contact_mobile,
+      ship_address,
+      bill_address,
     } = req.body;
-    // const { ship_address, district, station, pin, email, mobile, gstin, pan, phone } = billDetails;
-    function generateUniqueNumber() {
-      const min = 1000000000;
-      const max = 9999999999;
-      const uniqueNumber = Math.floor(Math.random() * (max - min + 1)) + min;
 
-      return uniqueNumber.toString();
-    }
-    const uniqueNumber = generateUniqueNumber();
-    await cutomerAdd
+    const customer = await cutomerAdd
       .create({
+        initials,
         customer_name,
-        alias,
-        customer_code: uniqueNumber,
-        billDetails,
-        shipDetails,
-        isActive,
+        company,
+        currency,
+        customer_code,
+        fax,
+        contach_person,
+        contact_phone,
+        contact_mobile,
+        bill_address,
+        ship_address,
       })
-      .then(() => {
+      .then((customer) =>
+        cutomerAdd
+          .findById(customer._id)
+          .populate('ship_address')
+          .populate('bill_address')
+      )
+      .then((populatedCustomer) => {
         res.status(200).json({
           message: CommonMessage.savecustomer.success,
           success: true,
+          customer: populatedCustomer,
         });
       })
       .catch((error) => {
+        console.log(error);
         res.status(400).json({
           message: CommonMessage.savecustomer.failed,
           success: false,
@@ -43,6 +54,7 @@ const saveCustomer = expressAsyncHandler(async (req, res) => {
         });
       });
   } catch (error) {
+    console.log(error);
     res.status(500).json(CommonMessage.commonError(error));
   }
 });
@@ -50,18 +62,37 @@ const saveCustomer = expressAsyncHandler(async (req, res) => {
 const updateCustomer = expressAsyncHandler(async (req, res) => {
   try {
     const { id } = req.params;
-
-    const { customer_name, alias, billDetails, shipDetails } = req.body;
+    const {
+      initials,
+      customer_name,
+      company,
+      currency,
+      customer_code,
+      fax,
+      contach_person,
+      contact_phone,
+      contact_mobile,
+    } = req.body;
     await cutomerAdd
       .findOneAndUpdate(
         { _id: id },
-        { customer_name, alias, billDetails, shipDetails }
+        {
+          initials,
+          customer_name,
+          company,
+          currency,
+          customer_code,
+          fax,
+          contach_person,
+          contact_phone,
+          contact_mobile,
+        }
       )
       .then((responce) => {
         res.status(200).json({
           message: CommonMessage.updatecustomer.success,
           success: true,
-          stores: responce,
+          customer: responce,
         });
       })
       .catch((error) => {
@@ -75,6 +106,7 @@ const updateCustomer = expressAsyncHandler(async (req, res) => {
     res.status(500).json(CommonMessage.commonError(error));
   }
 });
+
 const DeleteCustomer = expressAsyncHandler(async (req, res) => {
   try {
     const { id } = req.params;
@@ -97,6 +129,7 @@ const DeleteCustomer = expressAsyncHandler(async (req, res) => {
     res.status(500).json(CommonMessage.commonError(error));
   }
 });
+
 const GetAllCustomer = expressAsyncHandler(async (req, res) => {
   try {
     let limit = req.query.limit ? Number(req.query.limit) : 10;
@@ -104,9 +137,11 @@ const GetAllCustomer = expressAsyncHandler(async (req, res) => {
     let skip = limit * (page - 1);
     let totalPage = Math.ceil((await cutomerAdd.countDocuments()) / limit);
     await cutomerAdd
-      .find()
+      .find({})
       .skip(skip)
       .limit(limit)
+      .populate('ship_address')
+      .populate('bill_address')
       .then((result) => {
         res.status(200).json({
           message:
@@ -127,6 +162,13 @@ const GetAllCustomer = expressAsyncHandler(async (req, res) => {
       });
   } catch (error) {}
 });
+// const GetAllCustomer = expressAsyncHandler(async (req, res) => {
+//   const customerDetails = await cutomerAdd
+//     .find({})
+//     .populate('ship_address')
+//     .populate('bill_address');
+
+// });
 
 module.exports = {
   saveCustomer,

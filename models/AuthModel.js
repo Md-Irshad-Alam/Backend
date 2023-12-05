@@ -1,64 +1,67 @@
-const { default: mongoose, mongo } = require("mongoose")
+const { default: mongoose, mongo } = require('mongoose');
 
-const userSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema(
+  {
     fname: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
     lname: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
     email: {
-        type: String,
-        required: true,
-        unique: true
+      type: String,
+      required: true,
+      unique: true,
     },
     emailverified: {
-        isVerified: {
-            type: Boolean,
-            default: false
-        },
-        verifyAt: {
-            type: Date
-        }
+      isVerified: {
+        type: Boolean,
+        default: false,
+      },
+      verifyAt: {
+        type: Date,
+      },
     },
     mobile: {
-        type: Number,
-        required: true,
-        unique: true
+      type: Number,
+      required: true,
+      unique: true,
     },
     countrycode: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
     mobileverified: {
-        isVerified: {
-            type: Boolean,
-            default: false
-        },
-        verifyAt: {
-            type: Date
-        }
+      isVerified: {
+        type: Boolean,
+        default: false,
+      },
+      verifyAt: {
+        type: Date,
+      },
     },
     password: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
     isActive: {
-        type: Boolean,
-        default: false
+      type: Boolean,
+      default: true,
     },
     resetpasswordCode: {
-        type: String
+      type: String,
     },
     resetpasswordAt: {
-        type: String
+      type: String,
     },
     role: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "roles"
-    }
-}, { timestamps: true })
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'roles',
+    },
+  },
+  { timestamps: true }
+);
 
-module.exports = mongoose.model('users', userSchema)
+module.exports = mongoose.model('users', userSchema);
