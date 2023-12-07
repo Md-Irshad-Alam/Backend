@@ -1,7 +1,7 @@
 const { default: mongoose } = require("mongoose");
 
 const uomSchema = new mongoose.Schema({
-    uom: {
+    UOM: {
         type: String,
         max: 50
     }
