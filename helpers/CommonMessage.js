@@ -370,26 +370,49 @@ module.exports = {
         success: "Employee is successfully deleted",
         failed: "Employee delete process failed",
     },
-    saveAddCategory: {
+    saveProductCategory: {
         success: 'Category added successfully',
         failed: 'Category is not added successfully. Please try again'
     },
-    updateAddCategory: {
+    updateProductCategory: {
         success: "Category details is successfully updated",
         failed: "Category details update process failed",
     },
-    getallAddCategory: {
+    getallProductCategory: {
         success: "Category are successfully fetched",
         failed: "Category fetching process failed",
         notfound: "Category AddCategory found"
     },
-    toggleAddCategory: {
+    toggleProductCategory: {
         active: "Category successfully activated",
         deactive: "Category successfully deactivated",
         failed: "Category active deactive process failed",
         notfound: "Category details not found"
     },
-    deleteAddCategory: {
+    deleteProductCategory: {
+        success: "Category is successfully deleted",
+        failed: "Category delete process failed",
+    },
+    saveProductlsit: {
+        success: 'Category added successfully',
+        failed: 'Category is not added successfully. Please try again'
+    },
+    updateProductlsit: {
+        success: "Category details is successfully updated",
+        failed: "Category details update process failed",
+    },
+    getallProductlsit: {
+        success: "Category are successfully fetched",
+        failed: "Category fetching process failed",
+        notfound: "Category Productlsit found"
+    },
+    toggleProductlsit: {
+        active: "Category successfully activated",
+        deactive: "Category successfully deactivated",
+        failed: "Category active deactive process failed",
+        notfound: "Category details not found"
+    },
+    deleteProductlsit: {
         success: "Category is successfully deleted",
         failed: "Category delete process failed",
     },

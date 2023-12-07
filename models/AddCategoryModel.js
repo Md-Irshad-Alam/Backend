@@ -1,6 +1,6 @@
 const { default: mongoose } = require("mongoose");
 
-const AddCategory = new mongoose.Schema(
+const AddCategorySchema = new mongoose.Schema(
   {
     category: {
       type: String,
@@ -68,4 +68,4 @@ const AddCategory = new mongoose.Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model("AddCategorys", AddCategory);
+module.exports = mongoose.model("AddCategorys", AddCategorySchema);

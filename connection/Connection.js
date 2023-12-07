@@ -4,6 +4,7 @@ const { encryptpassword } = require("../helpers/AuthHelper");
 const moment = require("moment-timezone");
 
 mongoose.connect(process.env.MONGO_URI)
+// mongoose.set('debug', true);
 
 
 const db = mongoose.connection

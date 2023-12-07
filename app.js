@@ -3,6 +3,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const cors = require("cors")
+var bodyParser = require('body-parser')
 require("dotenv").config()
 require("./connection/Connection")
 var app = express();
@@ -14,6 +15,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(bodyParser.json());
 
 // Routes List
 app.use("/api/role-permission", require("./routes/RoleRoutes"))
@@ -28,13 +30,15 @@ app.use("/api/auth", require("./routes/AuthRoute"))
 // app.use("/api/color", require("./routes/ColorMasterRoute"))
 
 
-
+app.use("/api/ArticleGroupMaster", require("./routes/ArticleGroupMasterRoute.js"))
 //  app.use("/api/country", require("./routes/CountryRoute"))
 // app.use("/api/UOM",require('./routes/UOMRoute'))
 
 
-app.use("/api/AddCategory", require("./routes/AddCategoryRoute"))
+// app.use("/api/AddCategory", require("./routes/AddCategoryRoute"))
 
+// app.use("/api/ProductCategory", require("./routes/ProductCategoryRoute.js"))
+// app.use("/api/Productlist",require("./routes/ProductlistRoute.js"))
 
 
 

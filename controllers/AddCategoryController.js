@@ -9,7 +9,6 @@ exports.saveAddCategory = expressAsyncHandler(async (req, res) => {
       color,
       type,
       store,
-      table,
       Ingredient,
       weight,
       phr,
