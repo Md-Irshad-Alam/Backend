@@ -5,7 +5,7 @@ const productSchema = new mongoose.Schema({
         type: Number,
         required: true,
         unique: true,
-        default: 1
+        default: () => Math.floor(1000 + Math.random() * 9000), // Auto-generate a 4-digit number
     },
     article_name: {
         type: String,
@@ -14,21 +14,21 @@ const productSchema = new mongoose.Schema({
     },
     group: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'groups'
+        ref: 'ArticleGroupMasterMasters'
     },
     category: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'categories'
+        ref: 'AddCategories'
     },
     heel_category: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'heelcategory'
+        ref: 'HeelCategorys'
     },
     forepart_category: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'forepartcategory'
+        ref: 'ForePartCategorys'
     },
-    uom: {
+    UOM: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'uoms'
     },
@@ -57,48 +57,48 @@ const productSchema = new mongoose.Schema({
     },
     tikki: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'categories'
+        ref: 'AddCategories'
     },
     tikki_one: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'categories'
+        ref: 'AddCategories'
     },
     tikki_two: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'categories'
+        ref: 'AddCategories'
     },
     client_ref: {
         logo_r: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'colormasters'
+            ref: 'ColorMasters'
         },
         logo_l: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'colormasters'
+            ref: 'ColorMasters'
         },
         outsole: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'colormasters'
+            ref: 'ColorMasters'
         },
         midsole: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'colormasters'
+            ref: 'ColorMasters'
         },
         bottom: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'colormasters'
+            ref: 'ColorMasters'
         },
         side_wall: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'colormasters'
+            ref: 'ColorMasters'
         },
         heel: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'colormasters'
+            ref: 'ColorMasters'
         },
         fore: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'colormasters'
+            ref: 'ColorMasters'
         },
         sidewall_color: {
             type: String,
@@ -111,35 +111,35 @@ const productSchema = new mongoose.Schema({
     production_ref: {
         logo_r: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'colormasters'
+            ref: 'ColorMasters'
         },
         logo_l: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'colormasters'
+            ref: 'ColorMasters'
         },
         outsole: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'colormasters'
+            ref: 'ColorMasters'
         },
         midsole: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'colormasters'
+            ref: 'ColorMasters'
         },
         bottom: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'colormasters'
+            ref: 'ColorMasters'
         },
         side_wall: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'colormasters'
+            ref: 'ColorMasters'
         },
         heel: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'colormasters'
+            ref: 'ColorMasters'
         },
         fore: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'colormasters'
+            ref: 'ColorMasters'
         },
         sidewall_color: {
             type: String,
@@ -205,3 +205,60 @@ const productSchema = new mongoose.Schema({
 }, { timestamps: true })
 
 module.exports = mongoose.model('products', productSchema)
+
+
+
+
+
+
+
+// const mongoose = require('mongoose');
+
+// const productSchema = new mongoose.Schema({
+//   articleCode: { type: String, required: true, unique: true },
+//   articleName: { type: String, required: true, maxlength: 100 },
+//   group: { type: String, ref: 'GroupMaster' },
+//   category: { type: String, ref: 'CategoryMaster' },
+//   heelCategory: { type: String, ref: 'HeelCategoryMaster' },
+//   forePartCategory: { type: String, ref: 'ForepartCategoryMaster' },
+//   uom: { type: String, ref: 'UOMMaster' },
+//   hardness: { type: String, maxlength: 50 },
+//   price: { type: Number, required: true, min: 0, max: 999999.99 },
+//   gstin: { type: Number, required: true, min: 0, max: 999999.99 },
+//   hsn: { type: String, maxlength: 20 },
+//   remarks: { type: String },
+//   type: { type: String, enum: ['Outsole', 'Midsole', 'Phylon', 'Raw Material', 'Lab Item'], required: true },
+//   // Add Midsole Part Section
+//   midsolePart: {
+//     // Define Midsole Part fields here
+//   },
+//   image: { type: String },
+//   tikki: { type: String, ref: 'CategoryMaster' },
+//   tikki1: { type: String, ref: 'CategoryMaster' },
+//   tikki2: { type: String, ref: 'CategoryMaster' },
+//   // For Client's Reference
+//   // Add fields for Client's Reference here
+//   // For Production Reference
+//   // Add fields for Production Reference here
+//   // Size Type & standard weight
+//   size: { type: String, maxlength: 4 },
+//   outSize: { type: String, maxlength: 4 },
+//   rate: { type: Number, min: 0, max: 999999.99 },
+//   mould: { type: String },
+//   outsoleWt: { type: Number, min: 0, max: 999.999 },
+//   sideWallWt: { type: Number, min: 0, max: 999.999 },
+//   bottomWt: { type: Number, min: 0, max: 999.999 },
+//   logoLWt: { type: Number, min: 0, max: 999.999 },
+//   logoRWt: { type: Number, min: 0, max: 999.999 },
+//   sideWallLogoWt: { type: Number, min: 0, max: 999.999 },
+//   groupId: { type: Number },
+//   wl221: { type: String },
+//   pairsPerHour: { type: Number },
+//   targetPairs: { type: Number },
+//   dummyMoulds: { type: String },
+//   store: { type: String, ref: 'StoreMaster' },
+// });
+
+// const Product = mongoose.model('Product', productSchema);
+
+// module.exports = Product;
