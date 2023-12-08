@@ -5,7 +5,6 @@ const AuthModel = require("../models/AuthModel");
 
 exports.superadmincheck = expressAsyncHandler(async (req, res, next) => {
     try {
-
         if (!req.headers.authorization) {
             return res.status(404).json({ message: CommonMessage.middleware.notoken, success: false })
         }
