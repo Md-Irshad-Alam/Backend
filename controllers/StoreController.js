@@ -25,20 +25,6 @@ exports.saveStore = expressAsyncHandler(async (req, res) => {
 });
 
 exports.updatestore = expressAsyncHandler(async (req, res) => {
-<<<<<<< HEAD
-    try {
-        const { id } = req.params
-        const { store_name, remarks } = req.body
-        await StoreModel.findOneAndUpdate({ _id: id }, { store_name, remarks }).then((result) => {
-            res.status(200).json({ message: CommonMessage.updatestore.success, success: true, stores: result })
-        }).catch((error) => {
-            res.status(400).json({ message: CommonMessage.updatestore.failed, success: false, error: error.toString() })
-        })
-    } catch (error) {
-        res.status(500).json(CommonMessage.commonError(error))
-    }
-})
-=======
   try {
     const { id } = req.params;
     const { store_name, remarks } = req.body;
@@ -62,26 +48,11 @@ exports.updatestore = expressAsyncHandler(async (req, res) => {
     res.status(500).json(CommonMessage.commonError(error));
   }
 });
->>>>>>> irshad
 
 exports.getallstore = expressAsyncHandler(async (req, res) => {
   try {
     const { search } = req.query;
 
-<<<<<<< HEAD
-        let skip = limit * (page - 1)
-        let totalPage = Math.ceil(await StoreModel.countDocuments({ store_name:new RegExp(search, 'i') }) / limit)
-
-        await StoreModel.find({ store_name:new RegExp(search, 'i') }).skip(skip).limit(limit).then((result) => {
-            res.status(200).json({ message: result.count != 0 ? CommonMessage.getallstore.success : CommonMessage.getallstore.nostore, success: true, stores: result, pagination: { limit, page, totalPage } })
-        }).catch((error) => {
-            res.status(400).json({ message: CommonMessage.getallstore.failed, success: false, error: error.toString() })
-        })
-    } catch (error) {
-        res.status(500).json(CommonMessage.commonError(error))
-    }
-})
-=======
     let limit = req.query.limit ? Number(req.query.limit) : 10;
     let page = req.query.page ? Number(req.query.page) : 1;
 
@@ -113,7 +84,6 @@ exports.getallstore = expressAsyncHandler(async (req, res) => {
     res.status(500).json(CommonMessage.commonError(error));
   }
 });
->>>>>>> irshad
 
 exports.togglestore = expressAsyncHandler(async (req, res) => {
   try {
