@@ -6,24 +6,16 @@ const { Types } = require("mongoose");
 
 exports.saveProduct = expressAsyncHandler(async (req, res) => {
   try {
-    const { article_code, color_id, category, type_id } = req.body;
-    await ProductModel.create({
-      article_name:article_name,
-      group:new new Types.ObjectId(group),
-      category: new Types.ObjectId(category),
-      heel_category: new Types.ObjectId(heel_category),
-      forepart_category: new Types.ObjectId(forepart_category),
-      UOM: new Types.ObjectId(UOM),
-      hardness:hardness,
-      price:price,
-      gstin:gstin,
-      hsn:hsn,
-      remarks:remarks,
-      type:type,
-      image:image,
-      colorMaster: new Types.ObjectId(colorMaster),
-      sidewall_color:sidewall_color,
+    const { article_code,article_name,group,category,heel_category,forepart_category,UOM,hardness,price,gstin,hsn,remark,type,image,tikki,tikki_one,tikki_two,logo_r,logo_l,outsole,midsole,bottom,side_wall,heel,fore,sidewall_color,remarks
+logo_r,logo_l,outsole,midsole,bottom,side_wall,heel,fore,sidewall_color,remarks,size,outSize,rate,mould,outsole_wt,sidewall_wt,bottom_wt,logo_l_wt,logo_r_wt,sidewall_logo_wt,group_id,wl_22_1,manufactured,target,dummy_moulds,store } = req.body;
+    
 
+
+
+
+
+await ProductModel.create({
+   
     })
       .then(() => {
         res.status(200).json({

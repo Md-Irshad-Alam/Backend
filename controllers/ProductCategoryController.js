@@ -6,7 +6,7 @@ const { Types } = require("mongoose");
 
 exports.saveProductCategory = expressAsyncHandler(async (req, res) => {
   try {
-    const { color_id, category_id, type_id } = req.body;
+    const { article_code,article_name, type_id } = req.body;
     await ProductCategoryModel.create({
       color_id: new Types.ObjectId(color_id),
       category_id: new Types.ObjectId(category_id),
