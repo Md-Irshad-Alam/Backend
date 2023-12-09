@@ -6,7 +6,7 @@ const {
   deleteDesignation,
   getallDesignation,
 } = require('../controllers/DesignationController');
-const { validate } = require('../helpers/CommonMessage');
+const validate  = require('../helpers/Validate');
 const {
   designationvalidation,
   updatedesignationvalidation,
