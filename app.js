@@ -37,6 +37,7 @@ app.use("/api/UOM",require('./routes/UOMRoute'))
 app.use("/api/AddCategory", require("./routes/AddCategoryRoute"))
 app.use("/api/ProductCategory", require("./routes/ProductCategoryRoute.js"))
 app.use("/api/Productlist",require("./routes/ProductlistRoute.js"))
+app.use("/api/Product",require("./routes/ProductRoute.js"))
 app.use('/api/customer', require('./routes/CustomerRoute'));
 
 

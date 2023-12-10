@@ -114,43 +114,43 @@ const productSchema = new mongoose.Schema(
             },
         },
         production_ref: {
-            logo_r: {
+            logo_rs: {
                 type: mongoose.Schema.Types.ObjectId,
                 ref: "ColorMasters",
             },
-            logo_l: {
+            logo_ls: {
                 type: mongoose.Schema.Types.ObjectId,
                 ref: "ColorMasters",
             },
-            outsole: {
+            outsoles: {
                 type: mongoose.Schema.Types.ObjectId,
                 ref: "ColorMasters",
             },
-            midsole: {
+            midsoles: {
                 type: mongoose.Schema.Types.ObjectId,
                 ref: "ColorMasters",
             },
-            bottom: {
+            bottoms: {
                 type: mongoose.Schema.Types.ObjectId,
                 ref: "ColorMasters",
             },
-            side_wall: {
+            side_walls: {
                 type: mongoose.Schema.Types.ObjectId,
                 ref: "ColorMasters",
             },
-            heel: {
+            heels: {
                 type: mongoose.Schema.Types.ObjectId,
                 ref: "ColorMasters",
             },
-            fore: {
+            fores: {
                 type: mongoose.Schema.Types.ObjectId,
                 ref: "ColorMasters",
             },
-            sidewall_color: {
+            sidewall_colors: {
                 type: String,
                 max: 100,
             },
-            remarks: {
+            remarkss: {
                 type: String,
             },
         },

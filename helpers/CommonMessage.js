@@ -469,5 +469,28 @@ module.exports = {
           success: "Category is successfully deleted",
           failed: "Category delete process failed",
       },
+      saveProduct: {
+        success: 'Product added successfully',
+        failed: 'Product is not added successfully. Please try again'
+    },
+    updateProduct: {
+        success: "Product details is successfully updated",
+        failed: "Product details update process failed",
+    },
+    getallProduct: {
+        success: "Product are successfully fetched",
+        failed: "Product fetching process failed",
+        notfound: "Product Product found"
+    },
+    toggleProduct: {
+        active: "Product successfully activated",
+        deactive: "Product successfully deactivated",
+        failed: "Product active deactive process failed",
+        notfound: "Product details not found"
+    },
+    deleteProduct: {
+        success: "Product is successfully deleted",
+        failed: "Product delete process failed",
+    },
   }
   
