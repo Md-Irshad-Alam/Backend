@@ -7,7 +7,6 @@ const {
   getallDesignation,
 } = require('../controllers/DesignationController');
 const validate = require('../helpers/Validate');
-// const { validate } = require('../helpers/CommonMessage');
 const {
   designationvalidation,
   updatedesignationvalidation,

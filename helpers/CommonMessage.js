@@ -211,7 +211,10 @@ module.exports = {
     failed: 'UOM active deactive process failed',
     notfound: 'UOM details not found',
   },
-
+  deleteUOM: {
+    success: 'UOM is successfully deleted',
+    failed: 'UOM delete process failed',
+  },
   saveForePartCategory: {
     success: 'ForePartCategory added successfully',
     failed: 'ForePartCategory is not added successfully. Please try again',
@@ -294,19 +297,6 @@ module.exports = {
     failed: 'Ingredient fetching process failed',
     nocountry: 'No Ingredient found',
   },
-  saveUOM: {
-    success: 'UOM added successfully added',
-    failed: 'Faild to the add UOM ',
-  },
-  updateUOM: {
-    success: 'UOM Updated successfully',
-    failed: 'Faild to the Update UOM ',
-  },
-  deleteUOM: {
-    success: 'UOM deleted successfully',
-    failed: 'Faild to the Update UOM ',
-  },
-
   toggleIngredient: {
     active: 'Ingredient successfully activated',
     deactive: 'Ingredient successfully deactivated',
@@ -477,5 +467,28 @@ module.exports = {
   deleteProductlsit: {
     success: 'Category is successfully deleted',
     failed: 'Category delete process failed',
+  },
+  saveProduct: {
+    success: 'Product added successfully',
+    failed: 'Product is not added successfully. Please try again',
+  },
+  updateProduct: {
+    success: 'Product details is successfully updated',
+    failed: 'Product details update process failed',
+  },
+  getallProduct: {
+    success: 'Product are successfully fetched',
+    failed: 'Product fetching process failed',
+    notfound: 'Product Product found',
+  },
+  toggleProduct: {
+    active: 'Product successfully activated',
+    deactive: 'Product successfully deactivated',
+    failed: 'Product active deactive process failed',
+    notfound: 'Product details not found',
+  },
+  deleteProduct: {
+    success: 'Product is successfully deleted',
+    failed: 'Product delete process failed',
   },
 };

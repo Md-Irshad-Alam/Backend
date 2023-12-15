@@ -6,25 +6,123 @@ const { Types } = require("mongoose");
 
 exports.saveProduct = expressAsyncHandler(async (req, res) => {
   try {
-    const { article_code, color_id, category, type_id } = req.body;
+    const {
+      article_code,
+      article_name,
+      group,
+      category,
+      heel_category,
+      forepart_category,
+      UOM,
+      hardness,
+      price,
+      gstin,
+      hsn,
+      remark,
+      type,
+      image,
+      tikki,
+      tikki_one,
+      tikki_two,
+      logo_r,
+      logo_l,
+      outsole,
+      midsole,
+      bottom,
+      side_wall,
+      heel,
+      fore,
+      sidewall_color,
+      remarks,
+      logo_rs,
+      logo_ls,
+      outsoles,
+      midsoles,
+      bottoms,
+      side_walls,
+      heels,
+      fores,
+      sidewall_colors,
+      remarkss,
+      size,
+      outSize,
+      rate,
+      mould,
+      outsole_wt,
+      sidewall_wt,
+      bottom_wt,
+      logo_l_wt,
+      logo_r_wt,
+      sidewall_logo_wt,
+      group_id,
+      wl_22_1,
+      manufactured,
+      target,
+      dummy_moulds,
+      store,
+    } = req.body;
+
     await ProductModel.create({
-      article_name:article_name,
-      group:new new Types.ObjectId(group),
+      article_code,
+      article_name,
+      group: new Types.ObjectId(group),
       category: new Types.ObjectId(category),
       heel_category: new Types.ObjectId(heel_category),
       forepart_category: new Types.ObjectId(forepart_category),
       UOM: new Types.ObjectId(UOM),
-      hardness:hardness,
-      price:price,
-      gstin:gstin,
-      hsn:hsn,
-      remarks:remarks,
-      type:type,
-      image:image,
-      colorMaster: new Types.ObjectId(colorMaster),
-      sidewall_color:sidewall_color,
-
-    })
+      hardness,
+      price,
+      gstin,
+      hsn,
+      remarks,
+      type,
+      image,
+      tikki: new Types.ObjectId(tikki),
+      tikki_one: new Types.ObjectId(tikki_one),
+      tikki_two: new Types.ObjectId(tikki_two),
+      client_ref: {
+          logo_r: new Types.ObjectId(logo_r),
+          logo_l: new Types.ObjectId(logo_l),
+          outsole: new Types.ObjectId(outsole),
+          midsole: new Types.ObjectId(midsole),
+          bottom: new Types.ObjectId(bottom),
+          side_wall: new Types.ObjectId(side_wall),
+          heel: new Types.ObjectId(heel),
+          fore: new Types.ObjectId(fore),
+          sidewall_color,
+          remarks,
+      },
+      production_ref: {
+          logo_rs: new Types.ObjectId(logo_rs),
+          logo_ls: new Types.ObjectId(logo_ls),
+          outsoles: new Types.ObjectId(outsoles),
+          midsoles: new Types.ObjectId(midsoles),
+          bottoms: new Types.ObjectId(bottoms),
+          side_walls: new Types.ObjectId(side_walls),
+          heels: new Types.ObjectId(heels),
+          fores: new Types.ObjectId(fores),
+          sidewall_colors,
+          remarkss,
+      },
+      sizetype_standardweight: {
+          size,
+          outSize,
+          rate,
+          mould,
+          outsole_wt,
+          sidewall_wt,
+          bottom_wt,
+          logo_l_wt,
+          logo_r_wt,
+          sidewall_logo_wt,
+          group_id,
+          wl_22_1,
+          manufactured,
+          target,
+          dummy_moulds,
+          store: new Types.ObjectId(store),
+      },
+  })
       .then(() => {
         res.status(200).json({
           message: CommonMessage.saveProduct.success,
@@ -43,32 +141,27 @@ exports.saveProduct = expressAsyncHandler(async (req, res) => {
   }
 });
 
-// Get all product categories with optional filters
 exports.getProductCategories = expressAsyncHandler(async (req, res) => {
   try {
-    const { category, color, type, article_code } = req.query;
-    let query = {};
-    if (article_code) {
-      query.article_code = article_code;
-    }
-    if (category) {
-      query.category_id = category;
-    }
-    if (color) {
-      query.color_id = color;
-    }
-    if (type) {
-      query.type_id = type;
-    }
-    await ProductModel.find(query)
-      .populate("category_id")
-      .populate("type_id")
-      .populate("color_id")
-      .populate("article_code")
-      .then(() => {
+    const { search } = req.query
+    let limit = req.query.limit ? Number(req.query.limit) : 10;
+    let page = req.query.page ? Number(req.query.page) : 1;
+    let skip = limit * (page - 1);
+    let totalPage = Math.ceil((await ProductModel.countDocuments({ products : new RegExp(search, 'i') })) / limit);
+    await ProductModel
+      .find({ products : new RegExp(search, 'i') })
+      .skip(skip)
+      .limit(limit)
+      .populate('products')
+      .then((result) => {
         res.status(200).json({
-          message: CommonMessage.getallProduct.success,
+          message:
+            result.length !== 0
+              ? CommonMessage.getallProduct.success
+              : CommonMessage.getallProduct.noProduct,
           success: true,
+          products: result,
+          pagination: { limit, page, totalPage },
         });
       })
       .catch((error) => {
@@ -78,27 +171,133 @@ exports.getProductCategories = expressAsyncHandler(async (req, res) => {
           error: error.toString(),
         });
       });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: "Internal Server Error" });
-  }
+  } catch (error) {}
 });
 
 exports.updateProduct = async (req, res) => {
   try {
     const { id } = req.params;
-    const { category, type, color,article_code } = req.body;
+    const {
+      article_code,
+      article_name,
+      group,
+      category,
+      heel_category,
+      forepart_category,
+      UOM,
+      hardness,
+      price,
+      gstin,
+      hsn,
+      remark,
+      type,
+      image,
+      tikki,
+      tikki_one,
+      tikki_two,
+      logo_r,
+      logo_l,
+      outsole,
+      midsole,
+      bottom,
+      side_wall,
+      heel,
+      fore,
+      sidewall_color,
+      remarks,
+      logo_rs,
+      logo_ls,
+      outsoles,
+      midsoles,
+      bottoms,
+      side_walls,
+      heels,
+      fores,
+      sidewall_colors,
+      remarkss,
+      size,
+      outSize,
+      rate,
+      mould,
+      outsole_wt,
+      sidewall_wt,
+      bottom_wt,
+      logo_l_wt,
+      logo_r_wt,
+      sidewall_logo_wt,
+      group_id,
+      wl_22_1,
+      manufactured,
+      target,
+      dummy_moulds,
+      store,
+    } = req.body;
 
     await ProductModel.findByIdAndUpdate(
       { _id: id },
-      { category, type, color,article_code },
+      {
+        article_code,
+        article_name,
+        group: new Types.ObjectId(group),
+        category: new Types.ObjectId(category),
+        heel_category: new Types.ObjectId(heel_category),
+        forepart_category: new Types.ObjectId(forepart_category),
+        UOM: new Types.ObjectId(UOM),
+        hardness,
+        price,
+        gstin,
+        hsn,
+        remarks,
+        type,
+        image,
+        tikki: new Types.ObjectId(tikki),
+        tikki_one: new Types.ObjectId(tikki_one),
+        tikki_two: new Types.ObjectId(tikki_two),
+        client_ref: {
+            logo_r: new Types.ObjectId(logo_r),
+            logo_l: new Types.ObjectId(logo_l),
+            outsole: new Types.ObjectId(outsole),
+            midsole: new Types.ObjectId(midsole),
+            bottom: new Types.ObjectId(bottom),
+            side_wall: new Types.ObjectId(side_wall),
+            heel: new Types.ObjectId(heel),
+            fore: new Types.ObjectId(fore),
+            sidewall_color,
+            remarks,
+        },
+        production_ref: {
+            logo_rs: new Types.ObjectId(logo_rs),
+            logo_ls: new Types.ObjectId(logo_ls),
+            outsoles: new Types.ObjectId(outsoles),
+            midsoles: new Types.ObjectId(midsoles),
+            bottoms: new Types.ObjectId(bottoms),
+            side_walls: new Types.ObjectId(side_walls),
+            heels: new Types.ObjectId(heels),
+            fores: new Types.ObjectId(fores),
+            sidewall_colors,
+            remarkss,
+        },
+        sizetype_standardweight: {
+            size,
+            outSize,
+            rate,
+            mould,
+            outsole_wt,
+            sidewall_wt,
+            bottom_wt,
+            logo_l_wt,
+            logo_r_wt,
+            sidewall_logo_wt,
+            group_id,
+            wl_22_1,
+            manufactured,
+            target,
+            dummy_moulds,
+            store: new Types.ObjectId(store),
+        },
+    },
       { new: true }
     )
-      .populate("category")
-      .populate("color")
-      .populate("type")
-      .populate("article_code")
-
       .then(() => {
         res.status(200).json({
           message: CommonMessage.updateProduct.success,
@@ -123,21 +322,17 @@ exports.deleteProduct = expressAsyncHandler(async (req, res) => {
     const { id } = req.params;
     await ProductModel.findByIdAndDelete(id)
       .then(() => {
-        res
-          .status(200)
-          .json({
-            message: CommonMessage.deleteProduct.success,
-            success: true,
-          });
+        res.status(200).json({
+          message: CommonMessage.deleteProduct.success,
+          success: true,
+        });
       })
       .catch((error) => {
-        res
-          .status(400)
-          .json({
-            message: CommonMessage.deleteProduct.failed,
-            success: false,
-            error: error.toString(),
-          });
+        res.status(400).json({
+          message: CommonMessage.deleteProduct.failed,
+          success: false,
+          error: error.toString(),
+        });
       });
   } catch (error) {
     res.status(500).json(CommonMessage.commonError(error));
