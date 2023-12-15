@@ -6,7 +6,8 @@ const {
   deleteDesignation,
   getallDesignation,
 } = require('../controllers/DesignationController');
-const { validate } = require('../helpers/CommonMessage');
+const validate = require('../helpers/Validate');
+// const { validate } = require('../helpers/CommonMessage');
 const {
   designationvalidation,
   updatedesignationvalidation,
@@ -17,12 +18,13 @@ Router.route('/add-designation').post(
   [designationvalidation, validate],
   saveDesignation
 );
-Router.route('/update-designation').put(
+
+Router.route('/update-designation/:id').put(
   [updatedesignationvalidation, validate],
   updateDesignation
 );
 Router.route('/get-designation').get(getallDesignation);
-Router.route('/delete-designation').delete(
+Router.route('/delete-designation/:id').delete(
   [deletedesignationvalidation, validate],
   deleteDesignation
 );

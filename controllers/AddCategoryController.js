@@ -2,6 +2,7 @@ const expressAsyncHandler = require("express-async-handler");
 const CommonMessage = require("../helpers/CommonMessage");
 const AddCategoryModel = require("../models/AddCategoryModel");
 
+
 exports.saveAddCategory = expressAsyncHandler(async (req, res) => {
   try {
     const {
@@ -86,10 +87,7 @@ exports.updateAddCategory = expressAsyncHandler(async (req, res) => {
 exports.getallAddCategory = expressAsyncHandler(async (req, res) => {
   try {
       const { search } = req.query
-      let limit = req.query.limit ? Number(req.query.limit) : 10
-      let page = req.query.page ? Number(req.query.page) : 1
-
-      let skip = limit * (page - 1)
+     
       let totalPage = Math.ceil(await AddCategoryModel.countDocuments({ category: new RegExp(search, 'i') }) / limit)
 
       await AddCategoryModel.find({ category: new RegExp(search, 'i') }).skip(skip).limit(limit).then((result) => {
