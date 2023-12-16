@@ -4,7 +4,7 @@ const StandardWeightSchema = new mongoose.Schema(
   {
     category_id: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "AddCategories",
+      ref: "products",
     },
     article_id: {
       type: mongoose.Schema.Types.ObjectId,

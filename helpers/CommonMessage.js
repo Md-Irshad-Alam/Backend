@@ -515,5 +515,28 @@ module.exports = {
       success: "StandardWeight is successfully deleted",
       failed: "StandardWeight delete process failed",
   },
+  saveProductMidsole: {
+    success: 'ProductMidsole added successfully',
+    failed: 'ProductMidsole is not added successfully. Please try again'
+},
+updateProductMidsole: {
+    success: "ProductMidsole details is successfully updated",
+    failed: "ProductMidsole details update process failed",
+},
+getallProductMidsole: {
+    success: "ProductMidsole are successfully fetched",
+    failed: "ProductMidsole fetching process failed",
+    notfound: "ProductMidsole ProductMidsole found"
+},
+toggleProductMidsole: {
+    active: "ProductMidsole successfully activated",
+    deactive: "ProductMidsole successfully deactivated",
+    failed: "ProductMidsole active deactive process failed",
+    notfound: "ProductMidsole details not found"
+},
+deleteProductMidsole: {
+    success: "ProductMidsole is successfully deleted",
+    failed: "ProductMidsole delete process failed",
+},
   }
   
