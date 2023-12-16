@@ -58,7 +58,7 @@ const productSchema = new mongoose.Schema(
             type: String,
         },
         image: {
-            type: Array,
+            type: Buffer,
         },
         tikki: {
             type: mongoose.Schema.Types.ObjectId,
