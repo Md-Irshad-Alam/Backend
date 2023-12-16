@@ -39,7 +39,9 @@ app.use("/api/ProductCategory", require("./routes/ProductCategoryRoute.js"))
 app.use("/api/Productlist",require("./routes/ProductlistRoute.js"))
 app.use("/api/Product",require("./routes/ProductRoute.js"))
 app.use('/api/customer', require('./routes/CustomerRoute'));
+app.use('/api/StandardWeight', require('./routes/StandardWeightRoute.js'));
 
+app.use('/api/ProductMidsole', require('./routes/ProductMidsoleRoute.js'));
 
 
 module.exports = app;
