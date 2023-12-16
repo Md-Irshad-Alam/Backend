@@ -26,14 +26,17 @@ app.use('/api/store', require('./routes/StoreRoute'));
 app.use('/api/ForePartCategory', require('./routes/ForePartCategoryRoute'));
 app.use('/api/HeelCategory', require('./routes/HeelCategoryRoute'));
 app.use('/api/EmployeeCategory', require('./routes/EmployeeCategoryRoute'));
+app.use('/api/Employee', require('./routes/AddEmployeeRoute.js'));
 app.use('/api/Ingredient', require('./routes/IngredientRoute'));
 app.use('/api/Type', require('./routes/TypeRoute'));
+app.use('/api/currency', require('./routes/CurrencyRoute.js'));
 app.use('/api/designation', require('./routes/DesignationRoute'));
 app.use('/api/color', require('./routes/ColorMasterRoute'));
 app.use(
   '/api/ArticleGroupMaster',
   require('./routes/ArticleGroupMasterRoute.js')
 );
+app.use('/api/state', require('./routes/stateMasterRoute.js'));
 app.use('/api/country', require('./routes/CountryRoute'));
 app.use('/api/UOM', require('./routes/UOMRoute'));
 app.use('/api/AddCategory', require('./routes/AddCategoryRoute'));
