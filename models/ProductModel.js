@@ -10,8 +10,7 @@ const productSchema = new mongoose.Schema(
         },
         article_name: {
             type: String,
-            max: 100,
-            required: true,
+         
         },
         group: {
             type: mongoose.Schema.Types.ObjectId,
@@ -59,6 +58,7 @@ const productSchema = new mongoose.Schema(
         },
         image: {
             type: Buffer,
+            data:Buffer
         },
         tikki: {
             type: mongoose.Schema.Types.ObjectId,

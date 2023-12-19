@@ -3,10 +3,12 @@ const CommonMessage = require("../helpers/CommonMessage");
 
 const ProductModel = require("../models/ProductModel.js");
 const { Types } = require("mongoose");
-const multer = require("multer");
-const storage = multer.memoryStorage();
-const upload = multer({ storage: storage });
-exports.uploadImage = upload.single('image'); 
+
+const multer = require('multer');
+const path = require('path');
+// Set up Multer storage configuration
+const storage = multer.memoryStorage(); // Store images in memory, you can change this to disk storage if needed
+exports.upload = multer({storage: storage,});
 
 exports.saveProduct = expressAsyncHandler(async (req, res) => {
   try {
@@ -24,7 +26,6 @@ exports.saveProduct = expressAsyncHandler(async (req, res) => {
       hsn,
       remark,
       type,
-      image,
       tikki,
       tikki_one,
       tikki_two,
@@ -66,6 +67,7 @@ exports.saveProduct = expressAsyncHandler(async (req, res) => {
       store,
     } = req.body;
 
+const image = req.file? req.file.buffer :null;
     await ProductModel.create({
       article_code,
       article_name,
@@ -80,7 +82,7 @@ exports.saveProduct = expressAsyncHandler(async (req, res) => {
       hsn,
       remarks,
       type,
-      image:file.buffer,
+      image:image,
       tikki: new Types.ObjectId(tikki),
       tikki_one: new Types.ObjectId(tikki_one),
       tikki_two: new Types.ObjectId(tikki_two),
