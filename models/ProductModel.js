@@ -9,9 +9,10 @@ const productSchema = new mongoose.Schema(
             default: () => Math.floor(1000 + Math.random() * 9000), // Auto-generate a 4-digit number
         },
         article_name: {
-            type: String,
+            type: String,            
             required: true,
-            unique: true
+            unique: true,
+
         },
         group: {
             type: mongoose.Schema.Types.ObjectId,
@@ -58,8 +59,7 @@ const productSchema = new mongoose.Schema(
             type: String,
         },
         image: {
-            type: Buffer,
-            data:Buffer
+            type: String,
         },
         tikki: {
             type: mongoose.Schema.Types.ObjectId,

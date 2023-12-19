@@ -5,10 +5,17 @@ const ProductModel = require("../models/ProductModel.js");
 const { Types } = require("mongoose");
 
 const multer = require('multer');
+const path = require('path');
 
-const storage = multer.memoryStorage(); 
-exports.upload = multer({storage: storage,});
-
+const storage = multer.diskStorage({
+  destination: function (req, file, callback) {
+      callback(null, 'uploads');
+  },
+  filename: function (req, file, callback) {
+      callback(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+  }
+});
+exports.upload = multer({ storage: storage }).single('image')
 exports.saveProduct = expressAsyncHandler(async (req, res) => {
   try {
     const {
@@ -65,9 +72,10 @@ exports.saveProduct = expressAsyncHandler(async (req, res) => {
       dummy_moulds,
       store,
     } = req.body;
+  
+const image = req.file ? req.file.filename : null;
 
-const image = req.file? req.file.buffer :null;
-    await ProductModel.create({
+await ProductModel.create({
       article_code,
       article_name,
       group: new Types.ObjectId(group),
@@ -81,7 +89,7 @@ const image = req.file? req.file.buffer :null;
       hsn,
       remarks,
       type,
-      image:image,
+      image: image ? `https://yourdomain.com/uploads/${image}` : null,
       tikki: new Types.ObjectId(tikki),
       tikki_one: new Types.ObjectId(tikki_one),
       tikki_two: new Types.ObjectId(tikki_two),

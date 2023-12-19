@@ -5,7 +5,7 @@ const validate = require('../helpers/Validate')
 
 const { ProductValidation, updateProductValidation, deleteProductValidation } = require('../validation/ProductValidation.js')
 
-Router.route('/add-Product').post([ProductValidation,validate],upload.single('image'),saveProduct)
+Router.route('/add-Product').post([ProductValidation,validate],upload,saveProduct)
 Router.route('/add-Product').post([ProductValidation, validate],saveProduct)
 Router.route('/update-Product/:id').put([updateProductValidation, validate],updateProduct)
 Router.route('/get-Product').get(getProductCategories)
