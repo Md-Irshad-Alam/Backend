@@ -4,6 +4,18 @@ const CommonMessage = require("../helpers/CommonMessage");
 const ProductModel = require("../models/ProductModel.js");
 const { Types } = require("mongoose");
 
+const multer = require('multer');
+const path = require('path');
+
+const storage = multer.diskStorage({
+  destination: function (req, file, callback) {
+      callback(null, 'uploads');
+  },
+  filename: function (req, file, callback) {
+      callback(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+  }
+});
+exports.upload = multer({ storage: storage }).single('image')
 exports.saveProduct = expressAsyncHandler(async (req, res) => {
   try {
     const {
@@ -20,7 +32,6 @@ exports.saveProduct = expressAsyncHandler(async (req, res) => {
       hsn,
       remark,
       type,
-      image,
       tikki,
       tikki_one,
       tikki_two,
@@ -61,8 +72,10 @@ exports.saveProduct = expressAsyncHandler(async (req, res) => {
       dummy_moulds,
       store,
     } = req.body;
+  
+const image = req.file ? req.file.filename : null;
 
-    await ProductModel.create({
+await ProductModel.create({
       article_code,
       article_name,
       group: new Types.ObjectId(group),
@@ -76,7 +89,7 @@ exports.saveProduct = expressAsyncHandler(async (req, res) => {
       hsn,
       remarks,
       type,
-      image,
+      image: image ? `https://yourdomain.com/uploads/${image}` : null,
       tikki: new Types.ObjectId(tikki),
       tikki_one: new Types.ObjectId(tikki_one),
       tikki_two: new Types.ObjectId(tikki_two),
