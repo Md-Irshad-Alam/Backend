@@ -10,7 +10,8 @@ const productSchema = new mongoose.Schema(
         },
         article_name: {
             type: String,
-         
+            required: true,
+            unique: true
         },
         group: {
             type: mongoose.Schema.Types.ObjectId,

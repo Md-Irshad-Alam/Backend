@@ -5,9 +5,8 @@ const ProductModel = require("../models/ProductModel.js");
 const { Types } = require("mongoose");
 
 const multer = require('multer');
-const path = require('path');
-// Set up Multer storage configuration
-const storage = multer.memoryStorage(); // Store images in memory, you can change this to disk storage if needed
+
+const storage = multer.memoryStorage(); 
 exports.upload = multer({storage: storage,});
 
 exports.saveProduct = expressAsyncHandler(async (req, res) => {
