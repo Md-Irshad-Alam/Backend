@@ -8,7 +8,7 @@ exports.saveUOM = expressAsyncHandler(async (req, res) => {
     await UOMModel.create({ UOM, isActive })
       .then((result) => {
         res.status(200).json({
-          message: CommonMessage.saveUOM.success,
+          message: 'UOM added  successfully',
           success: true,
           uom: result,
         });
@@ -16,7 +16,7 @@ exports.saveUOM = expressAsyncHandler(async (req, res) => {
       .catch((error) => {
         console.log(error);
         res.status(400).json({
-          message: CommonMessage.saveUOM.failed,
+          message: 'Faild to add uom',
           success: false,
           error: error.toString(),
         });

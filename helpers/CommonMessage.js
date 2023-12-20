@@ -75,6 +75,10 @@ module.exports = {
     success: 'Store added successfully',
     failed: 'Store is not added successfully. Please try again',
   },
+  saveUOM: {
+    success: 'UOM added successfully ',
+    failed: 'Faild to add Uom',
+  },
   updatestore: {
     success: 'Store details is successfully updated',
     failed: 'Store details update process failed',
