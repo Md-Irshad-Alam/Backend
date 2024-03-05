@@ -17,5 +17,5 @@ const stateMasterSchema = new mongoose.Schema(
   },
   { timestamps: true }
 );
-
+stateMasterSchema.set('strictPopulate', true);
 module.exports = mongoose.model('stateMasters', stateMasterSchema);

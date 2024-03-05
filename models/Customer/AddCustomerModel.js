@@ -4,7 +4,7 @@ const AddCustomerSchema = new mongoose.Schema(
   {
     initials: {
       type: String,
-      required: true,
+      default: 'Ms./Mis.',
     },
     customer_name: {
       type: String,
@@ -12,16 +12,13 @@ const AddCustomerSchema = new mongoose.Schema(
     },
     company: {
       type: String,
-      required: true,
     },
     customer_code: {
       type: String,
       unique: true,
-      required: true,
     },
     currency: {
       type: String,
-      required: true,
     },
     ship_address: {
       type: mongoose.Schema.Types.ObjectId,
@@ -34,6 +31,7 @@ const AddCustomerSchema = new mongoose.Schema(
     contact_person: {
       type: String,
     },
+
     fax: {
       type: String,
     },

@@ -13,14 +13,12 @@ const nodemailer = require('nodemailer');
 
 exports.register = expressAsyncHandler(async (req, res) => {
   try {
-    const { fname, lname, email, password, mobile, countrycode } = req.body;
-
+    const { fname, lname, email, password, mobile } = req.body;
     await AuthModel.create({
       fname,
       lname,
       email,
       mobile,
-      countrycode,
       password: await encryptpassword(password),
     })
       .then(() => {
@@ -127,6 +125,16 @@ exports.forgetPassword = expressAsyncHandler(async (req, res) => {
   }
 });
 
+exports.Getusers = expressAsyncHandler(async (req, res) => {
+  try {
+    const { id } = req.user;
+    const userdetails = await AuthModel.findById(id);
+    res.status(200).send({ data: userdetails, message: 'User fatched ' });
+    return userdetails;
+  } catch (error) {
+    res.status(400).send({ message: 'User fatching faild !' });
+  }
+});
 exports.verifyOtp = expressAsyncHandler(async (req, res) => {
   try {
     const { email, otp } = req.body;
@@ -198,14 +206,11 @@ exports.resetPassword = expressAsyncHandler(async (req, res) => {
   }
 });
 
-
-
 exports.logout = expressAsyncHandler(async (req, res) => {
   try {
-    console.log(req);
-    const { usertoken, userdetails } = req.body;
-
-    await TokenModel.deleteMany({ user: userdetails._id, token: usertoken })
+    const { usertoken } = req.body;
+    console.log(usertoken);
+    await TokenModel.deleteMany({ token: usertoken })
       .then(() => {
         res
           .status(200)

@@ -7,10 +7,11 @@ exports.savestateMaster = expressAsyncHandler(async (req, res) => {
     const { state, country, isActive } = req.body;
     await stateMasterModel
       .create({ state, country, isActive })
-      .then(() => {
+      .then((result) => {
         res.status(200).json({
           message: CommonMessage.savestateMaster.success,
           success: true,
+          state: result,
         });
       })
       .catch((error) => {

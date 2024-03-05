@@ -1,13 +1,16 @@
-const { default: mongoose } = require("mongoose");
+const { default: mongoose } = require('mongoose');
 
-const CountrySchema = new mongoose.Schema({
+const CountrySchema = new mongoose.Schema(
+  {
     country: {
-        type: String
-        },
+      type: String,
+    },
     isActive: {
-        type: Boolean,
-        default: true
-    }
-}, { timestamps: true })
+      type: Boolean,
+      default: true,
+    },
+  },
+  { timestamps: true }
+);
 
-module.exports = mongoose.model('Countrys', CountrySchema)
+module.exports = mongoose.model('countries', CountrySchema);

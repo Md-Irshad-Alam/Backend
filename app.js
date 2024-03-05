@@ -1,16 +1,14 @@
 var express = require('express');
+require('dotenv').config();
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
-const cors = require('cors');
 var bodyParser = require('body-parser');
-require('dotenv').config();
+const cors = require('cors');
 require('./connection/Connection');
 
 var app = express();
 
-const cors = require('cors');
 app.use(cors());
 var bodyParser = require('body-parser');
 require('dotenv').config();

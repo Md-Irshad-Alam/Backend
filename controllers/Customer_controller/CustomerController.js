@@ -32,21 +32,21 @@ const saveCustomer = expressAsyncHandler(async (req, res) => {
         bill_address,
         ship_address,
       })
-      .then((customer) =>
+      .then((customer) => {
         cutomerAdd
           .findById(customer._id)
           .populate('ship_address')
-          .populate('bill_address')
-      )
+          .populate('bill_address');
+      })
       .then((populatedCustomer) => {
         res.status(200).json({
           message: CommonMessage.savecustomer.success,
           success: true,
           customer: populatedCustomer,
         });
+        console.log(populatedCustomer);
       })
       .catch((error) => {
-        console.log(error);
         res.status(400).json({
           message: CommonMessage.savecustomer.failed,
           success: false,
@@ -54,7 +54,6 @@ const saveCustomer = expressAsyncHandler(async (req, res) => {
         });
       });
   } catch (error) {
-    console.log(error);
     res.status(500).json(CommonMessage.commonError(error));
   }
 });
@@ -142,6 +141,7 @@ const GetAllCustomer = expressAsyncHandler(async (req, res) => {
       .limit(limit)
       .populate('ship_address')
       .populate('bill_address')
+
       .then((result) => {
         res.status(200).json({
           message:
@@ -152,6 +152,7 @@ const GetAllCustomer = expressAsyncHandler(async (req, res) => {
           customer: result,
           pagination: { limit, page, totalPage },
         });
+        console.log(result);
       })
       .catch((error) => {
         res.status(400).json({

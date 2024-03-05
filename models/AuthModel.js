@@ -29,19 +29,7 @@ const userSchema = new mongoose.Schema(
       required: true,
       unique: true,
     },
-    countrycode: {
-      type: String,
-      required: true,
-    },
-    mobileverified: {
-      isVerified: {
-        type: Boolean,
-        default: false,
-      },
-      verifyAt: {
-        type: Date,
-      },
-    },
+
     password: {
       type: String,
       required: true,
@@ -50,12 +38,7 @@ const userSchema = new mongoose.Schema(
       type: Boolean,
       default: true,
     },
-    resetpasswordCode: {
-      type: String,
-    },
-    resetpasswordAt: {
-      type: String,
-    },
+
     role: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'roles',

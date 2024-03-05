@@ -7,7 +7,10 @@ const {
   verifyOtp,
   resetPassword,
   logout,
+  getlogedinuser,
+  Getusers,
 } = require('../controllers/AuthController');
+const { Loggeduserhelper } = require('../helpers/AuthHelper');
 const validate = require('../helpers/Validation');
 const {
   registervalidation,
@@ -19,7 +22,9 @@ const {
 
 Router.route('/register').post([registervalidation, validate], register);
 Router.route('/login').post([loginvalidation, validate], login);
+Router.route('/users').get([Loggeduserhelper], Getusers);
 Router.route('/logout').post(logout);
+
 Router.route('/forgetpassword').post(
   [forgetPasswordvalidation, validate],
   forgetPassword
