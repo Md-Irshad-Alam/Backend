@@ -75,10 +75,6 @@ module.exports = {
     success: 'Store added successfully',
     failed: 'Store is not added successfully. Please try again',
   },
-  saveUOM: {
-    success: 'UOM added successfully ',
-    failed: 'Faild to add Uom',
-  },
   updatestore: {
     success: 'Store details is successfully updated',
     failed: 'Store details update process failed',
@@ -494,5 +490,51 @@ module.exports = {
   deleteProduct: {
     success: 'Product is successfully deleted',
     failed: 'Product delete process failed',
+  },
+  saveStandardWeight: {
+    success: 'StandardWeight added successfully',
+    failed: 'StandardWeight is not added successfully. Please try again',
+  },
+  updateStandardWeight: {
+    success: 'StandardWeight details is successfully updated',
+    failed: 'StandardWeight details update process failed',
+  },
+  getallStandardWeight: {
+    success: 'StandardWeight are successfully fetched',
+    failed: 'StandardWeight fetching process failed',
+    notfound: 'StandardWeight StandardWeight found',
+  },
+  toggleStandardWeight: {
+    active: 'StandardWeight successfully activated',
+    deactive: 'StandardWeight successfully deactivated',
+    failed: 'StandardWeight active deactive process failed',
+    notfound: 'StandardWeight details not found',
+  },
+  deleteStandardWeight: {
+    success: 'StandardWeight is successfully deleted',
+    failed: 'StandardWeight delete process failed',
+  },
+  saveProductMidsole: {
+    success: 'ProductMidsole added successfully',
+    failed: 'ProductMidsole is not added successfully. Please try again',
+  },
+  updateProductMidsole: {
+    success: 'ProductMidsole details is successfully updated',
+    failed: 'ProductMidsole details update process failed',
+  },
+  getallProductMidsole: {
+    success: 'ProductMidsole are successfully fetched',
+    failed: 'ProductMidsole fetching process failed',
+    notfound: 'ProductMidsole ProductMidsole found',
+  },
+  toggleProductMidsole: {
+    active: 'ProductMidsole successfully activated',
+    deactive: 'ProductMidsole successfully deactivated',
+    failed: 'ProductMidsole active deactive process failed',
+    notfound: 'ProductMidsole details not found',
+  },
+  deleteProductMidsole: {
+    success: 'ProductMidsole is successfully deleted',
+    failed: 'ProductMidsole delete process failed',
   },
 };

@@ -5,6 +5,7 @@ const {
   saveProduct,
   updateProduct,
   deleteProduct,
+  upload,
 } = require('../controllers/ProductController.js');
 const validate = require('../helpers/Validate');
 
@@ -14,6 +15,11 @@ const {
   deleteProductValidation,
 } = require('../validation/ProductValidation.js');
 
+Router.route('/add-Product').post(
+  [ProductValidation, validate],
+  upload,
+  saveProduct
+);
 Router.route('/add-Product').post([ProductValidation, validate], saveProduct);
 Router.route('/update-Product/:id').put(
   [updateProductValidation, validate],
