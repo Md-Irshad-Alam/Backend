@@ -1,3 +1,4 @@
+require('dotenv').config();
 const bcryptjs = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const TokenModel = require('../models/TokenModel');
@@ -10,11 +11,13 @@ exports.encryptpassword = async (password) => {
 exports.compairpassword = async (password, haspassword) => {
   return bcryptjs.compareSync(password, haspassword);
 };
-
 // process.env.TOKEN_KEY;
 exports.tokens = async (id) => {
   return new Promise(function (resolve, reject) {
-    TokenModel.create({ user: id, token: jwt.sign({ id }, '@#$KEY') })
+    TokenModel.create({
+      user: id,
+      token: jwt.sign({ id }, process.env.TOKEN_KEY),
+    })
       .then((result) => {
         resolve(result.token);
       })
@@ -34,7 +37,10 @@ exports.Loggeduserhelper = async (req, res, next) => {
   }
   try {
     // Verify the token using the correct secret key
-    const decoded = jwt.verify(token.replace('Bearer ', ''), '@#$KEY'); // Remove 'Bearer ' prefix
+    const decoded = jwt.verify(
+      token.replace('Bearer ', ''),
+      process.env.TOKEN_KEY
+    ); // Remove 'Bearer ' prefix
     // Attach the user details to the request object
     req.user = decoded;
     // Call the next middleware function
