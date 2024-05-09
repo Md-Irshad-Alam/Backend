@@ -21,7 +21,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
-
+app.listen(4500, (req, res) => {
+  console.log('server is live on port 4500');
+});
 // Routes List
 
 app.use('/api/role-permission', require('./routes/RoleRoutes'));
